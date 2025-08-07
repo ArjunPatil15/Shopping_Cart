@@ -1,0 +1,47 @@
+# Java build files
+*.class
+*.jar
+*.war
+*.log
+
+# Maven
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.sw?
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Environment files
+.env
+*.env
+
+# Spring Boot devtools restart directory
+.spring-boot-devtools.properties
+
+# IntelliJ & Eclipse specific
+*.class
+*.project
+*.classpath
+.settings/
+bin/
+build/
+
+# Generated files
+hs_err_pid*
+
+# Node / Frontend (if you add frontend support)
+node_modules/
+dist/
