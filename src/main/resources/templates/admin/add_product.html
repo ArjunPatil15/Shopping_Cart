@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::Layout(~{::section})}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        <div class="container p-5 mt-1">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card card-sh">
+                        <div class="card-header text-center fs-4">Add Product</div>
+                        <div class="card-body">
+                            <form action="">
+                                <div class="mb-3">
+                                    <label>Enter Title</label><input type="text" name="title" class="form-control">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label>Enter Description</label>
+                                    <textarea name="" id="" rows="3" class="form-control"></textarea>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label>Select Category</label>
+                                    <select name="" id="" class="form-control">
+                                        <!-- Enter Options -->
+                                        <option value="">--select--</option>
+                                        <option value="">Electronics</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label>Enter Price (&#8377;)</label><input type="number" name="title" class="form-control">
+                                </div>
+
+                                <div class="row">
+                                    <div class="mb-3 col">
+                                        <label>Enter Stock</label><input type="number" name="title" class="form-control">
+                                    </div>
+
+                                    <div class="mb-3 col">
+                                        <label>Upload File</label><input type="file" name="title" class="form-control">
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-primary col-md-12">Submit</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
