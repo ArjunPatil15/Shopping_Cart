@@ -14,7 +14,7 @@
                 <div class="col-md-3">
                     <div class="card card-sh">
                         <div class="card-header text-center">
-                           <p class="fs-4">Add Category</p>
+                            <p class="fs-4">Add Category</p>
                             <th:block th:if="${session.succMsg}">
                                 <p class="text-center text-success fw-bold">[[${session.succMsg}]]</p>
                                 <th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
@@ -74,21 +74,28 @@
                                     <tr>
                                         <th scope="col">Sr no.</th>
                                         <th scope="col">Category</th>
+                                        <th scope="col">Status</th>
                                         <th scope="col">Image</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Electronics</td>
+                                    <tr th:each="cat, cStat : ${categorys}">
+                                        <th scope="row">[[${cStat.count}]]</th>
+                                        <td>[[${cat.name}]]</td>
+                                        <td th:text="${cat.isActive} ? 'Active' : 'Inactive'"></td>
                                         <td>
-                                            <img src="https://via.placeholder.com/60" alt="Category Image"
-                                                class="img-thumbnail" style="width: 60px; height: 60px;">
+                                            <img th:src="@{'/img/category_img/' + ${cat.imageName}}"
+                                                alt="Category Image" class="img-thumbnail"
+                                                style="width: 100px; height: 60px;">
                                         </td>
                                         <td>
-                                            <button class="btn btn-sm btn-primary me-2">Edit</button>
-                                            <button class="btn btn-sm btn-danger">Delete</button>
+                                            <a th:href="@{'/admin/loadEditCategory/' + ${cat.id}}"
+                                                class="btn btn-sm btn-primary me-2"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                                                
+                                            <a th:href="@{'/admin/deleteCategory/' + ${cat.id}}"
+                                                class="btn btn-sm btn-danger">
+                                                <i class="fa-solid fa-trash"></i> Delete</a>
                                         </td>
                                     </tr>
                                 </tbody>
