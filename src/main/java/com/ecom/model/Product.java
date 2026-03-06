@@ -5,9 +5,47 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 @Entity
 public class Product {
+
+	public Product(int id, String title, String description, String category, double price, int stock, String image,
+			int discount, Double discountPrice) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.description = description;
+		this.category = category;
+		this.price = price;
+		this.stock = stock;
+		this.image = image;
+		this.discount = discount;
+		this.discountPrice = discountPrice;
+	}
+
+	public int getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(int discount) {
+		this.discount = discount;
+	}
+
+	public Double getDiscountPrice() {
+		return discountPrice;
+	}
+
+	public void setDiscountPrice(Double discountPrice) {
+		this.discountPrice = discountPrice;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +65,35 @@ public class Product {
 	
 	private String image;
 	
+	private int discount;
+	
+	private Double discountPrice;
+	
+	private Boolean isActive;
+	
+	public Product(int id, String title, String description, String category, double price, int stock, String image,
+			int discount, Double discountPrice, Boolean isActive) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.description = description;
+		this.category = category;
+		this.price = price;
+		this.stock = stock;
+		this.image = image;
+		this.discount = discount;
+		this.discountPrice = discountPrice;
+		this.isActive = isActive;
+	}
+
+	public Boolean getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(Boolean isActive) {
+		this.isActive = isActive;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -86,7 +153,8 @@ public class Product {
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", title=" + title + ", description=" + description + ", category=" + category
-				+ ", price=" + price + ", stock=" + stock + ", image=" + image + "]";
+				+ ", price=" + price + ", stock=" + stock + ", image=" + image + ", discount=" + discount
+				+ ", discountPrice=" + discountPrice + ", isActive=" + isActive + "]";
 	}
 
 	public Product(int id, String title, String description, String category, double price, int stock, String image) {
