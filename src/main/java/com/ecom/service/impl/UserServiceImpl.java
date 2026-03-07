@@ -28,4 +28,10 @@ public class UserServiceImpl implements UserService{
 		return saveUser;
 	}
 
+	@Override
+	public UserDtls getUserByEmail(String email) {
+		
+		return userRepository.findByEmail(email);
+	}
+
 }
